@@ -70,6 +70,7 @@
     <Compile Include="gestionUsuarios.Designer.cs">
       <DependentUpon>gestionUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libro.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>

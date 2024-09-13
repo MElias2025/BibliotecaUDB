@@ -13,9 +13,10 @@ namespace Libros
     public partial class gestionLibros : Form
     {
         //Array para gestion de libros
-        private string [,] libros = new string[100,6];
+        private Libro [] libros = new Libro[100];
         //variable para cantidad de libros
         private int contador = 0;
+        private int contadorCodigo = 1; // Variable global para generar códigos automáticos
 
         public gestionLibros()
         {
@@ -62,10 +63,9 @@ namespace Libros
                 return;
             }
 
-            if(string.IsNullOrWhiteSpace(txtCodigo.Text) ||
-        string.IsNullOrWhiteSpace(txtTitulo.Text) ||
+            if(string.IsNullOrWhiteSpace(txtTitulo.Text) ||
         string.IsNullOrWhiteSpace(txtAutor.Text) ||
-        string.IsNullOrWhiteSpace(txtAnoPublicacion.Text) ||
+        string.IsNullOrWhiteSpace(dateTimePickerAnoPublicacion.Value.ToString("dd-MM-yyyy")) ||
         string.IsNullOrWhiteSpace(txtISBN.Text) ||
         string.IsNullOrWhiteSpace(txtEditorial.Text))
             {
@@ -73,32 +73,34 @@ namespace Libros
                 return;
             }
 
-            // Verificar si el código ya existe
-            for (int i = 0; i < contador; i++)
-            {
-                if (libros[i, 0].Equals(txtCodigo.Text, StringComparison.OrdinalIgnoreCase))
-                {
-                    MessageBox.Show("Ya existe un libro con este código.");
-                    return;
-                }
-            }
+            //Generar el codigo unico
+            string codigoGenerado = "LIB" + contadorCodigo.ToString("D4"); // "LIB0001", "LIB0002", etc.
 
-            libros[contador,0] = txtCodigo.Text;
-            libros[contador,1] = txtTitulo.Text;
-            libros[contador,2] = txtAutor.Text;
-            libros[contador,3] = txtAnoPublicacion.Text;
-            libros[contador,4] = txtISBN.Text;
-            libros[contador,5] = txtEditorial.Text;
+            // Crear una instancia de Libro
+            Libro nuevoLibro = new Libro(
+                codigoGenerado,
+                txtTitulo.Text,
+                txtAutor.Text,
+                dateTimePickerAnoPublicacion.Value,
+                txtISBN.Text,
+                txtEditorial.Text
+            );
 
+            // Agregar el libro al array
+            libros[contador] = nuevoLibro;
+          
             contador++;
+            contadorCodigo++; // Incrementar el contador de códigos para el próximo libro
             actualizarDataGridView();
+            LimpiarCampos();
 
             txtCodigo.Clear();
             txtTitulo.Clear();
             txtAutor.Clear();
-            txtAnoPublicacion.Clear();
+            dateTimePickerAnoPublicacion.Value = DateTime.Now;
             txtISBN.Clear();
             txtEditorial.Clear();
+            txtCodigo.Enabled = false;
         }
 
         //Actualizar dataviewgriew
@@ -110,7 +112,14 @@ namespace Libros
             // Llenar el DataGridView con los datos del array
             for (int i = 0; i < contador; i++)
             {
-                dvgLibros.Rows.Add(libros[i, 0], libros[i, 1], libros[i, 2], libros[i, 3], libros[i, 4], libros[i, 5]);
+                dvgLibros.Rows.Add(
+                 libros[i].Codigo,
+                 libros[i].Titulo,
+                 libros[i].Autor,
+                 libros[i].AnoPublicacion.ToString("dd-MM-yyyy"),
+                 libros[i].ISBN,
+                 libros[i].Editorial
+                 );
             }
         }
 
@@ -121,7 +130,11 @@ namespace Libros
             string codigoBusqueda = txtCodigo.Text.Trim();
             string tituloBusqueda = txtTitulo.Text.Trim();
             string autorBusqueda = txtAutor.Text.Trim();
-            string anoBusqueda = txtAnoPublicacion.Text.Trim();
+            DateTime? anoBusqueda = null;
+            if (!string.IsNullOrWhiteSpace(dateTimePickerAnoPublicacion.Text))
+            {
+                anoBusqueda = dateTimePickerAnoPublicacion.Value.Date;
+            }
             string isbnBusqueda = txtISBN.Text.Trim();
             string editorialBusqueda = txtEditorial.Text.Trim();
 
@@ -134,23 +147,30 @@ namespace Libros
                 bool coincide = true;
 
                 // Comparar cada campo con el término de búsqueda si está lleno
-                if (!string.IsNullOrWhiteSpace(codigoBusqueda) && !libros[i, 0].Equals(codigoBusqueda, StringComparison.OrdinalIgnoreCase))
+                if (!string.IsNullOrWhiteSpace(codigoBusqueda) && !libros[i].Codigo.Equals(codigoBusqueda, StringComparison.OrdinalIgnoreCase))
                     coincide = false;
-                if (!string.IsNullOrWhiteSpace(tituloBusqueda) && !libros[i, 1].Equals(tituloBusqueda, StringComparison.OrdinalIgnoreCase))
+                if (!string.IsNullOrWhiteSpace(tituloBusqueda) && !libros[i].Titulo.Equals(tituloBusqueda, StringComparison.OrdinalIgnoreCase))
                     coincide = false;
-                if (!string.IsNullOrWhiteSpace(autorBusqueda) && !libros[i, 2].Equals(autorBusqueda, StringComparison.OrdinalIgnoreCase))
+                if (!string.IsNullOrWhiteSpace(autorBusqueda) && !libros[i].Autor.Equals(autorBusqueda, StringComparison.OrdinalIgnoreCase))
                     coincide = false;
-                if (!string.IsNullOrWhiteSpace(anoBusqueda) && !libros[i, 3].Equals(anoBusqueda, StringComparison.OrdinalIgnoreCase))
+                if (anoBusqueda.HasValue && libros[i].AnoPublicacion.Date != anoBusqueda.Value)
                     coincide = false;
-                if (!string.IsNullOrWhiteSpace(isbnBusqueda) && !libros[i, 4].Equals(isbnBusqueda, StringComparison.OrdinalIgnoreCase))
+                if (!string.IsNullOrWhiteSpace(isbnBusqueda) && !libros[i].ISBN.Equals(isbnBusqueda, StringComparison.OrdinalIgnoreCase))
                     coincide = false;
-                if (!string.IsNullOrWhiteSpace(editorialBusqueda) && !libros[i, 5].Equals(editorialBusqueda, StringComparison.OrdinalIgnoreCase))
+                if (!string.IsNullOrWhiteSpace(editorialBusqueda) && !libros[i].Editorial.Equals(editorialBusqueda, StringComparison.OrdinalIgnoreCase))
                     coincide = false;
 
                 if (coincide)
                 {
                     // Agregar la fila al DataGridView si hay una coincidencia
-                    dvgLibros.Rows.Add(libros[i, 0], libros[i, 1], libros[i, 2], libros[i, 3], libros[i, 4], libros[i, 5]);
+                    dvgLibros.Rows.Add(
+                libros[i].Codigo,
+                libros[i].Titulo,
+                libros[i].Autor,
+                libros[i].AnoPublicacion.ToString("dd-MM-yyyy"),
+                libros[i].ISBN,
+                libros[i].Editorial
+                );
                 }
             }
 
@@ -173,11 +193,12 @@ namespace Libros
                 txtCodigo.Text = filaSeleccionada.Cells[0].Value?.ToString();
                 txtTitulo.Text = filaSeleccionada.Cells[1].Value?.ToString();
                 txtAutor.Text = filaSeleccionada.Cells[2].Value?.ToString();
-                txtAnoPublicacion.Text = filaSeleccionada.Cells[3].Value?.ToString();
+                dateTimePickerAnoPublicacion.Value = DateTime.ParseExact(filaSeleccionada.Cells[3].Value?.ToString(), "dd-MM-yyyy", null);
                 txtISBN.Text = filaSeleccionada.Cells[4].Value?.ToString();
                 txtEditorial.Text = filaSeleccionada.Cells[5].Value?.ToString();
             }
         }
+
 
         //Boton Actualizar Libro
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -189,18 +210,18 @@ namespace Libros
                 return;
             }
 
-            // Busca el libro por el código ingresado
+            // Buscar el libro por el código
             bool libroEncontrado = false;
             for (int i = 0; i < contador; i++)
             {
-                if (libros[i, 0].Equals(txtCodigo.Text, StringComparison.OrdinalIgnoreCase))
+                if (libros[i].Codigo.Equals(txtCodigo.Text, StringComparison.OrdinalIgnoreCase))
                 {
-                    // Actualizar los campos del libro (excepto el código)
-                    libros[i, 1] = txtTitulo.Text;
-                    libros[i, 2] = txtAutor.Text;
-                    libros[i, 3] = txtAnoPublicacion.Text;
-                    libros[i, 4] = txtISBN.Text;
-                    libros[i, 5] = txtEditorial.Text;
+                    // Actualizar los campos del libro
+                    libros[i].Titulo = txtTitulo.Text;
+                    libros[i].Autor = txtAutor.Text;
+                    libros[i].AnoPublicacion = dateTimePickerAnoPublicacion.Value;
+                    libros[i].ISBN = txtISBN.Text;
+                    libros[i].Editorial = txtEditorial.Text;
 
                     libroEncontrado = true;
                     break;
@@ -213,18 +234,19 @@ namespace Libros
                 return;
             }
 
-            // Actualizar el DataGridView
             actualizarDataGridView();
+            MessageBox.Show("El libro ha sido actualizado exitosamente.");
+        }
 
-            // Limpiar los campos después de actualizar
+        // Limpiar los campos después de actualizar
+        private void LimpiarCampos()
+        {
             txtCodigo.Clear();
             txtTitulo.Clear();
             txtAutor.Clear();
-            txtAnoPublicacion.Clear();
+            dateTimePickerAnoPublicacion.Value = DateTime.Now;
             txtISBN.Clear();
             txtEditorial.Clear();
-
-            MessageBox.Show("El libro ha sido actualizado exitosamente.");
         }
 
         //Boton Eliminar Libro
@@ -241,17 +263,15 @@ namespace Libros
             bool libroEncontrado = false;
             for (int i = 0; i < contador; i++)
             {
-                if (libros[i, 0].Equals(txtCodigo.Text, StringComparison.OrdinalIgnoreCase))
+                if (libros[i].Codigo.Equals(txtCodigo.Text, StringComparison.OrdinalIgnoreCase))
                 {
                     // Desplazar los elementos para eliminar el libro encontrado
                     for (int j = i; j < contador - 1; j++)
                     {
-                        for (int k = 0; k < libros.GetLength(1); k++)
-                        {
-                            libros[j, k] = libros[j + 1, k]; // Mover cada campo
-                        }
+                        libros[j] = libros[j + 1];
+                    
                     }
-
+                    libros[contador - 1] = null;
                     libroEncontrado = true;
                     contador--; // Reducir el contador de libros
                     break;
@@ -271,11 +291,17 @@ namespace Libros
             txtCodigo.Clear();
             txtTitulo.Clear();
             txtAutor.Clear();
-            txtAnoPublicacion.Clear();
+            dateTimePickerAnoPublicacion.Value = DateTime.Now;
             txtISBN.Clear();
             txtEditorial.Clear();
 
             MessageBox.Show("El libro ha sido eliminado exitosamente.");
         }
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 }

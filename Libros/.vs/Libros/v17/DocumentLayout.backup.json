@@ -1,14 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Marlon\\Desktop\\BibliotecaUDB\\Libros\\",
+  "WorkspaceRootPath": "C:\\Users\\crist\\source\\repos\\BibliotecaUDB\\Libros\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|c:\\users\\marlon\\desktop\\bibliotecaudb\\libros\\gestionlibros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|solutionrelative:gestionlibros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|C:\\Users\\crist\\source\\repos\\BibliotecaUDB\\Libros\\gestionLibros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|solutionrelative:gestionLibros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|C:\\Users\\Marlon\\Desktop\\BibliotecaUDB\\Libros\\gestionLibros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|solutionrelative:gestionLibros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|c:\\users\\crist\\source\\repos\\bibliotecaudb\\libros\\libro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|solutionrelative:libro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|c:\\users\\crist\\source\\repos\\bibliotecaudb\\libros\\gestionlibros.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|solutionrelative:gestionlibros.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|c:\\users\\crist\\source\\repos\\bibliotecaudb\\libros\\gestionlibros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4090E94B-8D68-47CC-8CAD-A99E78C30B4A}|Libros.csproj|solutionrelative:gestionlibros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "gestionLibros.cs",
-              "DocumentMoniker": "C:\\Users\\Marlon\\Desktop\\BibliotecaUDB\\Libros\\gestionLibros.cs",
+              "DocumentIndex": 3,
+              "Title": "gestionLibros.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\crist\\source\\repos\\BibliotecaUDB\\Libros\\gestionLibros.cs",
               "RelativeDocumentMoniker": "gestionLibros.cs",
-              "ToolTip": "C:\\Users\\Marlon\\Desktop\\BibliotecaUDB\\Libros\\gestionLibros.cs",
-              "RelativeToolTip": "gestionLibros.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkBAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\crist\\source\\repos\\BibliotecaUDB\\Libros\\gestionLibros.cs [Dise\u00F1o]",
+              "RelativeToolTip": "gestionLibros.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T15:57:05.801Z",
+              "WhenOpened": "2024-09-13T01:57:33.18Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "gestionLibros.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\crist\\Source\\Repos\\BibliotecaUDB\\Libros\\gestionLibros.Designer.cs",
+              "RelativeDocumentMoniker": "gestionLibros.Designer.cs",
+              "ToolTip": "C:\\Users\\crist\\Source\\Repos\\BibliotecaUDB\\Libros\\gestionLibros.Designer.cs",
+              "RelativeToolTip": "gestionLibros.Designer.cs",
+              "ViewState": "AgIAAMgAAAAAAAAAAAAuwNIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T01:48:53.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Libro.cs",
+              "DocumentMoniker": "C:\\Users\\crist\\source\\repos\\BibliotecaUDB\\Libros\\Libro.cs",
+              "RelativeDocumentMoniker": "Libro.cs",
+              "ToolTip": "C:\\Users\\crist\\source\\repos\\BibliotecaUDB\\Libros\\Libro.cs",
+              "RelativeToolTip": "Libro.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAYwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T01:23:36.07Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "gestionLibros.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Marlon\\Desktop\\BibliotecaUDB\\Libros\\gestionLibros.cs",
+              "Title": "gestionLibros.cs",
+              "DocumentMoniker": "C:\\Users\\crist\\source\\repos\\BibliotecaUDB\\Libros\\gestionLibros.cs",
               "RelativeDocumentMoniker": "gestionLibros.cs",
-              "ToolTip": "C:\\Users\\Marlon\\Desktop\\BibliotecaUDB\\Libros\\gestionLibros.cs [Dise\u00F1o]",
-              "RelativeToolTip": "gestionLibros.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\crist\\source\\repos\\BibliotecaUDB\\Libros\\gestionLibros.cs",
+              "RelativeToolTip": "gestionLibros.cs",
+              "ViewState": "AgIAAMQAAAAAAAAAAADwv8kAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T07:30:26.122Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-09-12T15:57:05.801Z",
+              "EditorCaption": ""
             }
           ]
         }

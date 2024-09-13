@@ -26,3 +26,17 @@ C:\Users\Marlon\Desktop\Libros\Libros\obj\Debug\Libros.csproj.GenerateResource.c
 C:\Users\Marlon\Desktop\Libros\Libros\obj\Debug\Libros.csproj.CoreCompileInputs.cache
 C:\Users\Marlon\Desktop\Libros\Libros\obj\Debug\Libros.exe
 C:\Users\Marlon\Desktop\Libros\Libros\obj\Debug\Libros.pdb
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\bin\Debug\Libros.exe.config
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\bin\Debug\Libros.exe
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\bin\Debug\Libros.pdb
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.csproj.AssemblyReference.cache
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.gestionGraficos.resources
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.gestionLibros.resources
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.gestionPrestamos.resources
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.gestionUsuarios.resources
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.login.resources
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.Properties.Resources.resources
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.csproj.GenerateResource.cache
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.csproj.CoreCompileInputs.cache
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.exe
+C:\Users\crist\Source\Repos\BibliotecaUDB\Libros\obj\Debug\Libros.pdb
